@@ -1,0 +1,211 @@
+._main_charge_points_ {
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+._content_charge_points_ {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 20px;
+}
+
+._content_consulta_factura {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+    padding: 20px 0;
+}
+
+._content_control_consulta_ {
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    width: 100%;
+    gap: 20px;
+}
+
+._content_control_consulta_ p{
+    margin: 0;
+}
+
+._content_control_consulta_ input {
+    width: 320px;
+    margin: 0;
+}
+
+._content_control_consulta_ input::-webkit-outer-spin-button,
+._content_control_consulta_ input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+._content_result_factura_ {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+}
+
+._card_result_factura_ {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    background-color: rgb(201, 201, 201);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+._item_result_ {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 10px;
+}
+
+._content_seccion_prediccion_ {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+}
+
+._seccion_prediccion_ {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    background-color: rgb(201, 201, 201);
+    border-radius: 20px;
+    padding: 20px;
+    gap: 10px;
+}
+
+._prediccion_content_lugar_ {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: auto;
+    gap: 20px;
+}
+
+._prediccion_content_lugar_ p,
+._prediccion_content_lugar_ select {
+    width: 180px;
+    margin: 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+._content_btn_predi_ {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+._content_seccion_consulta_ {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    position: relative;
+    width: 100%;
+}
+
+._seccion_consulta_ {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    background-color: rgb(201, 201, 201);
+    border-radius: 20px;
+    padding: 20px;
+    gap: 10px;
+}
+
+._content_table_result_ {
+    width: 100%;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-width: 800px;
+}
+
+.styled-table thead {
+    background: rgb(34, 79, 161);
+    color: #fff;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.styled-table tbody tr {
+    background-color: #fff;
+    color: #000;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table-result {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.styled-table {
+    min-width: 1000px;
+    width: 100%;
+}
+
+
+@media(max-width: 768px) {
+
+    ._content_control_consulta_ {
+        flex-direction: column;
+    }
+
+    ._content_control_consulta_ button {
+        font-size: 12px;
+        padding: 2px 4px;
+    }
+
+    ._prediccion_content_lugar_ p {
+        width: 140px;
+    }
+
+    ._prediccion_content_lugar_ select {
+        width: 160px;
+    }
+}

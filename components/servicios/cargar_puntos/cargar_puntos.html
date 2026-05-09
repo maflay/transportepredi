@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cargar Puntos</title>
+</head>
+
+<body>
+    <section class="_main_charge_points_">
+        <div class="_content_charge_points_">
+            <div class="_content_consulta_factura">
+                <h2>Consultar</h2>
+                <div class="_content_control_consulta_">
+                    <div>
+                        <p># Factura</p>
+                        <input onkeyup="this.value = this.value.toUpperCase()" placeholder="# Factura" type="text"
+                        value="FER1207665" name="factura_id" id="factura_id" class="form-control">
+                    </div>
+                    <div>
+                        <p>Fecha de tu Factura</p>
+                        <input value="2026-04-21" type="date" class="form-control" name="fecha_consulta" id="fecha_consulta">
+                    </div>
+                    <button id="btn_consulta_factura" class="btn btn-primary">Consultar Factura</button>
+                </div>
+                <br />
+                <div id="_content_result_factura_" class="_content_result_factura_">
+                    <h2>Información de tu Factura</h2>
+                    <div class="_card_result_factura_">
+                        <div class="_item_result_">
+                            <p>Nombre :</p>
+                            <p id="_nombre_result_">???</p>
+                        </div>
+                        <div style="display: none;" class="_item_result_">
+                            <p>Cédula :</p>
+                            <p id="_cedula_result_">???</p>
+                        </div>
+                        <div class="_item_result_">
+                            <p>valor compra :</p>
+                            <p id="_compra_result_">$$$</p>
+                        </div>
+                        <div class="_item_result_">
+                            <p>Factura eletrónica de venta :</p>
+                            <p id="_factura_result_">???</p>
+                        </div>
+                        <div class="_item_result_">
+                            <p>Placa :</p>
+                            <p id="_placa_result_">???</p>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div id="_content_seccion_prediccion_" class="_content_seccion_prediccion_">
+                    <h2 id="title_prediccion">Haz tu Predicción</h2>
+                    <div id="_seccion_prediccion_" class="_seccion_prediccion_">
+                        <div class="_prediccion_content_lugar_">
+                            <p>Campeon</p>
+                            <select class="form-control" id="primer_lugar">
+                                <option value="">Selecciona un país</option>
+
+                                <!-- Anfitriones -->
+                                <option value="Canada">Canadá</option>
+                                <option value="Mexico">México</option>
+                                <option value="USA">Estados Unidos</option>
+
+                                <!-- CONMEBOL -->
+                                <option value="Argentina">Argentina</option>
+                                <option value="Brasil">Brasil</option>
+                                <option value="Colombia">Colombia</option>
+                                <option value="Ecuador">Ecuador</option>
+                                <option value="Paraguay">Paraguay</option>
+                                <option value="Uruguay">Uruguay</option>
+
+                                <!-- UEFA -->
+                                <option value="Alemania">Alemania</option>
+                                <option value="Austria">Austria</option>
+                                <option value="Belgica">Bélgica</option>
+                                <option value="Bosnia">Bosnia y Herzegovina</option>
+                                <option value="Croacia">Croacia</option>
+                                <option value="Chequia">Chequia</option>
+                                <option value="Inglaterra">Inglaterra</option>
+                                <option value="Francia">Francia</option>
+                                <option value="Paises Bajos">Países Bajos</option>
+                                <option value="Noruega">Noruega</option>
+                                <option value="Portugal">Portugal</option>
+                                <option value="Escocia">Escocia</option>
+                                <option value="España">España</option>
+                                <option value="Suecia">Suecia</option>
+                                <option value="Suiza">Suiza</option>
+                                <option value="Turquia">Turquía</option>
+
+                                <!-- AFC -->
+                                <option value="Australia">Australia</option>
+                                <option value="Irak">Irak</option>
+                                <option value="Iran">Irán</option>
+                                <option value="Japon">Japón</option>
+                                <option value="Jordania">Jordania</option>
+                                <option value="Corea del Sur">Corea del Sur</option>
+                                <option value="Qatar">Qatar</option>
+                                <option value="Arabia Saudita">Arabia Saudita</option>
+                                <option value="Uzbekistan">Uzbekistán</option>
+
+                                <!-- CAF -->
+                                <option value="Argelia">Argelia</option>
+                                <option value="Cabo Verde">Cabo Verde</option>
+                                <option value="RD Congo">RD Congo</option>
+                                <option value="Costa de Marfil">Costa de Marfil</option>
+                                <option value="Egipto">Egipto</option>
+                                <option value="Ghana">Ghana</option>
+                                <option value="Marruecos">Marruecos</option>
+                                <option value="Senegal">Senegal</option>
+                                <option value="Sudafrica">Sudáfrica</option>
+                                <option value="Tunez">Túnez</option>
+
+                                <!-- CONCACAF -->
+                                <option value="Curazao">Curazao</option>
+                                <option value="Haiti">Haití</option>
+                                <option value="Panama">Panamá</option>
+
+                                <!-- OFC -->
+                                <option value="Nueva Zelanda">Nueva Zelanda</option>
+                            </select>
+                        </div>
+                        <div class="_prediccion_content_lugar_">
+                            <p>Sub Campeon</p>
+                            <select class="form-control" id="segundo_lugar">
+                                <option value="">Selecciona un país</option>
+
+                                <!-- Anfitriones -->
+                                <option value="Canada">Canadá</option>
+                                <option value="Mexico">México</option>
+                                <option value="USA">Estados Unidos</option>
+
+                                <!-- CONMEBOL -->
+                                <option value="Argentina">Argentina</option>
+                                <option value="Brasil">Brasil</option>
+                                <option value="Colombia">Colombia</option>
+                                <option value="Ecuador">Ecuador</option>
+                                <option value="Paraguay">Paraguay</option>
+                                <option value="Uruguay">Uruguay</option>
+
+                                <!-- UEFA -->
+                                <option value="Alemania">Alemania</option>
+                                <option value="Austria">Austria</option>
+                                <option value="Belgica">Bélgica</option>
+                                <option value="Bosnia">Bosnia y Herzegovina</option>
+                                <option value="Croacia">Croacia</option>
+                                <option value="Chequia">Chequia</option>
+                                <option value="Inglaterra">Inglaterra</option>
+                                <option value="Francia">Francia</option>
+                                <option value="Paises Bajos">Países Bajos</option>
+                                <option value="Noruega">Noruega</option>
+                                <option value="Portugal">Portugal</option>
+                                <option value="Escocia">Escocia</option>
+                                <option value="España">España</option>
+                                <option value="Suecia">Suecia</option>
+                                <option value="Suiza">Suiza</option>
+                                <option value="Turquia">Turquía</option>
+
+                                <!-- AFC -->
+                                <option value="Australia">Australia</option>
+                                <option value="Irak">Irak</option>
+                                <option value="Iran">Irán</option>
+                                <option value="Japon">Japón</option>
+                                <option value="Jordania">Jordania</option>
+                                <option value="Corea del Sur">Corea del Sur</option>
+                                <option value="Qatar">Qatar</option>
+                                <option value="Arabia Saudita">Arabia Saudita</option>
+                                <option value="Uzbekistan">Uzbekistán</option>
+
+                                <!-- CAF -->
+                                <option value="Argelia">Argelia</option>
+                                <option value="Cabo Verde">Cabo Verde</option>
+                                <option value="RD Congo">RD Congo</option>
+                                <option value="Costa de Marfil">Costa de Marfil</option>
+                                <option value="Egipto">Egipto</option>
+                                <option value="Ghana">Ghana</option>
+                                <option value="Marruecos">Marruecos</option>
+                                <option value="Senegal">Senegal</option>
+                                <option value="Sudafrica">Sudáfrica</option>
+                                <option value="Tunez">Túnez</option>
+
+                                <!-- CONCACAF -->
+                                <option value="Curazao">Curazao</option>
+                                <option value="Haiti">Haití</option>
+                                <option value="Panama">Panamá</option>
+
+                                <!-- OFC -->
+                                <option value="Nueva Zelanda">Nueva Zelanda</option>
+                            </select>
+                        </div>
+                        <div class="_prediccion_content_lugar_">
+                            <p>El Mejor Tercero</p>
+                            <select class="form-control" id="tercer_lugar">
+                                <option value="">Selecciona un país</option>
+
+                                <!-- Anfitriones -->
+                                <option value="Canada">Canadá</option>
+                                <option value="Mexico">México</option>
+                                <option value="USA">Estados Unidos</option>
+
+                                <!-- CONMEBOL -->
+                                <option value="Argentina">Argentina</option>
+                                <option value="Brasil">Brasil</option>
+                                <option value="Colombia">Colombia</option>
+                                <option value="Ecuador">Ecuador</option>
+                                <option value="Paraguay">Paraguay</option>
+                                <option value="Uruguay">Uruguay</option>
+
+                                <!-- UEFA -->
+                                <option value="Alemania">Alemania</option>
+                                <option value="Austria">Austria</option>
+                                <option value="Belgica">Bélgica</option>
+                                <option value="Bosnia">Bosnia y Herzegovina</option>
+                                <option value="Croacia">Croacia</option>
+                                <option value="Chequia">Chequia</option>
+                                <option value="Inglaterra">Inglaterra</option>
+                                <option value="Francia">Francia</option>
+                                <option value="Paises Bajos">Países Bajos</option>
+                                <option value="Noruega">Noruega</option>
+                                <option value="Portugal">Portugal</option>
+                                <option value="Escocia">Escocia</option>
+                                <option value="España">España</option>
+                                <option value="Suecia">Suecia</option>
+                                <option value="Suiza">Suiza</option>
+                                <option value="Turquia">Turquía</option>
+
+                                <!-- AFC -->
+                                <option value="Australia">Australia</option>
+                                <option value="Irak">Irak</option>
+                                <option value="Iran">Irán</option>
+                                <option value="Japon">Japón</option>
+                                <option value="Jordania">Jordania</option>
+                                <option value="Corea del Sur">Corea del Sur</option>
+                                <option value="Qatar">Qatar</option>
+                                <option value="Arabia Saudita">Arabia Saudita</option>
+                                <option value="Uzbekistan">Uzbekistán</option>
+
+                                <!-- CAF -->
+                                <option value="Argelia">Argelia</option>
+                                <option value="Cabo Verde">Cabo Verde</option>
+                                <option value="RD Congo">RD Congo</option>
+                                <option value="Costa de Marfil">Costa de Marfil</option>
+                                <option value="Egipto">Egipto</option>
+                                <option value="Ghana">Ghana</option>
+                                <option value="Marruecos">Marruecos</option>
+                                <option value="Senegal">Senegal</option>
+                                <option value="Sudafrica">Sudáfrica</option>
+                                <option value="Tunez">Túnez</option>
+
+                                <!-- CONCACAF -->
+                                <option value="Curazao">Curazao</option>
+                                <option value="Haiti">Haití</option>
+                                <option value="Panama">Panamá</option>
+
+                                <!-- OFC -->
+                                <option value="Nueva Zelanda">Nueva Zelanda</option>
+                            </select>
+                        </div>
+                        <div class="_prediccion_content_lugar_">
+                            <p>4° Cuarto Lugar</p>
+                            <select class="form-control" id="cuarto_lugar">
+                                <option value="">Selecciona un país</option>
+
+                                <!-- Anfitriones -->
+                                <option value="Canada">Canadá</option>
+                                <option value="Mexico">México</option>
+                                <option value="USA">Estados Unidos</option>
+
+                                <!-- CONMEBOL -->
+                                <option value="Argentina">Argentina</option>
+                                <option value="Brasil">Brasil</option>
+                                <option value="Colombia">Colombia</option>
+                                <option value="Ecuador">Ecuador</option>
+                                <option value="Paraguay">Paraguay</option>
+                                <option value="Uruguay">Uruguay</option>
+
+                                <!-- UEFA -->
+                                <option value="Alemania">Alemania</option>
+                                <option value="Austria">Austria</option>
+                                <option value="Belgica">Bélgica</option>
+                                <option value="Bosnia">Bosnia y Herzegovina</option>
+                                <option value="Croacia">Croacia</option>
+                                <option value="Chequia">Chequia</option>
+                                <option value="Inglaterra">Inglaterra</option>
+                                <option value="Francia">Francia</option>
+                                <option value="Paises Bajos">Países Bajos</option>
+                                <option value="Noruega">Noruega</option>
+                                <option value="Portugal">Portugal</option>
+                                <option value="Escocia">Escocia</option>
+                                <option value="España">España</option>
+                                <option value="Suecia">Suecia</option>
+                                <option value="Suiza">Suiza</option>
+                                <option value="Turquia">Turquía</option>
+
+                                <!-- AFC -->
+                                <option value="Australia">Australia</option>
+                                <option value="Irak">Irak</option>
+                                <option value="Iran">Irán</option>
+                                <option value="Japon">Japón</option>
+                                <option value="Jordania">Jordania</option>
+                                <option value="Corea del Sur">Corea del Sur</option>
+                                <option value="Qatar">Qatar</option>
+                                <option value="Arabia Saudita">Arabia Saudita</option>
+                                <option value="Uzbekistan">Uzbekistán</option>
+
+                                <!-- CAF -->
+                                <option value="Argelia">Argelia</option>
+                                <option value="Cabo Verde">Cabo Verde</option>
+                                <option value="RD Congo">RD Congo</option>
+                                <option value="Costa de Marfil">Costa de Marfil</option>
+                                <option value="Egipto">Egipto</option>
+                                <option value="Ghana">Ghana</option>
+                                <option value="Marruecos">Marruecos</option>
+                                <option value="Senegal">Senegal</option>
+                                <option value="Sudafrica">Sudáfrica</option>
+                                <option value="Tunez">Túnez</option>
+
+                                <!-- CONCACAF -->
+                                <option value="Curazao">Curazao</option>
+                                <option value="Haiti">Haití</option>
+                                <option value="Panama">Panamá</option>
+
+                                <!-- OFC -->
+                                <option value="Nueva Zelanda">Nueva Zelanda</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="_content_btn_predi_">
+                        <button title="Enviar" id="btn_submit_predi_trans" class="btn btn-primary">Enviar</button>
+                        <button title="Actualizar Prediccion" class="btn btn-primary" id="btn_update_pre">Actualizar Pre.</button>
+                        <button title="Consultar Prediccion" id="btn_consul_trans" class="btn btn-danger">Consultar Pre.</button>
+                        <button title="Cambiar Prediccion" id="btn_cambiar_trans" class="btn btn-primary">Cambiar Pre.</button>
+                    </div>
+                </div>
+                <br/>
+                <div id="_content_seccion_consulta_" class="_content_seccion_consulta_">
+                    <h2>Tus predicciones por factura</h2>
+                    <div class="_seccion_consulta_">
+                        <div class="_content_table_result_" id="_seccion_consulta_"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

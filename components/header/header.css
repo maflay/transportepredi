@@ -1,0 +1,494 @@
+body {
+    padding-left: 400px;
+}
+
+
+.Navbar {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 400px;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    transition: background-color 0.6s ease;
+    background-color: #e2e2e2;
+
+}
+
+.Navbar.navbar-scrolled {
+    background-color: #e2e2e2;
+}
+
+.Navbar>.nav-logo {
+    font-weight: 700;
+    font-size: 21px;
+    margin: 15px;
+    color: #ffffff;
+}
+
+.nav-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 50px;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+}
+
+.Navbar .nav-items a {
+    color: #505050;
+    font-weight: 100;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 15px;
+    position: relative;
+    opacity: 0.9;
+}
+
+.Navbar .nav-items button {
+    color: #505050;
+    font-weight: 100;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 15px;
+    position: relative;
+    opacity: 0.9;
+}
+
+.Navbar .nav-items button:hover {
+    opacity: 0.5;
+}
+
+.Navbar .nav-items a.active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: #505050;
+    transition: all 0.4s;
+}
+
+
+.Navbar .nav-items a:hover {
+    opacity: 1;
+}
+
+.Navbar .nav-items a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #505050;
+    transition: all .40s;
+}
+
+.Navbar .nav-items a:hover::before {
+    width: 100%;
+}
+
+.Navbar .nav-toggle {
+    display: none;
+}
+
+.Navbar .nav-content-logo {
+    display: none;
+}
+
+.logo-menu {
+    width: 100px;
+    height: auto;
+    left: 0;
+    position: relative;
+    transition: all 0.6s ease;
+    cursor: pointer;
+}
+
+.nav-link img {
+    width: 100px;
+    height: 100%;
+}
+
+.logo-menu.logo-down {
+    width: 200px;
+    left: 0;
+    position: relative;
+    top: 0;
+}
+
+
+
+.nav-toggle {
+    position: absolute;
+    right: 20px;
+}
+
+.nav-logo img {
+    visibility: hidden;
+    width: 1px;
+}
+
+.nav-logo2 img {
+    visibility: hidden;
+    top: 1px;
+    left: 1px;
+    width: 1px;
+}
+
+.dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+    z-index: 999;
+    min-width: 150px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.submenu a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+}
+
+.dropdown:hover .submenu,
+.dropdown.active .submenu {
+    opacity: 1;
+    transform: translateY(0px);
+    pointer-events: auto;
+}
+
+
+.prueba-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 20vh;
+    background-color: #171c1e;
+    transition: all 0.4s ease;
+    position: relative;
+    left: 20px;
+}
+
+.prueba-logo.scrold {
+    height: 0;
+    background-color: transparent;
+}
+
+.Navbar.page-contacto {
+    background-color: #fff;
+    color: #000;
+}
+
+.Navbar.page-contacto a {
+    color: black;
+}
+
+.Navbar.page-contacto .nav-items a::before {
+    background: #000000;
+}
+
+
+.soy_mayor_de_edad {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(8px);
+    z-index: 999;
+}
+
+.content_mayor_edad {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.info_modal_mayor_de_edad {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #171c1e;
+    border: #27314F 4px solid;
+    width: 500px;
+}
+
+.content_img_me {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 40px 0;
+}
+
+.content_img_me img {
+    width: 80%;
+}
+
+.content_text_me {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 100%;
+    padding: 0 30px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.close_modal_me {
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 10px 15px;
+    border-radius: 0.375rem;
+    background-color: transparent;
+    color: white;
+    font-size: 2rem;
+    transition: all .4s ease;
+    background-color: #27314F;
+    margin-top: 20px;
+}
+
+.close_modal_me:hover {
+    background-color: #1E63D3;
+    cursor: pointer;
+}
+
+@media (max-width: 1220px) {
+
+        body {
+        padding-top: 80px;
+        padding-left: initial;
+    }
+
+
+    .Navbar {
+        transition: background-color 0.3s ease;
+        background-color: #e2e2e2;
+        height: 80px;
+        width: 100%;
+    }
+
+    .Navbar.navbar-scrolled {
+        background-color: #e2e2e2;
+    }
+
+    .Navbar .nav-items {
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(120deg, #e2e2e2, #e2e2e2, #e2e2e2, #e2e2e2, #e2e2e2, #e2e2e2, #e2e2e2, #e2e2e2);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        gap: 0;
+    }
+
+
+    .Navbar .nav-items a.active::before {
+        background-color: white;
+    }
+
+    .nav-items img {
+        display: none;
+    }
+
+    .Navbar>.nav-items>a {
+        font-size: 20px;
+        color: white;
+    }
+
+    .Navbar .nav-items.open {
+        transform: translateY(0);
+        overflow-y: hidden;
+        height: 800px;
+    }
+
+    .card-divider-menu {
+        height: 2px;
+        background-color: white;
+        width: 90%;
+    }
+
+    .nav-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .nav-logo img {
+        visibility: visible;
+        position: relative;
+        width: 60%;
+        bottom: 60%;
+    }
+
+    .nav-logo2 img {
+        visibility: visible;
+        position: relative;
+        top: 120px;
+        left: 10%;
+        width: 80%;
+    }
+
+    .Navbar .nav-toggle {
+        display: flex;
+        position: absolute;
+        top: 20px;
+        right: 0px;
+        width: 40px;
+        height: 34px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .Navbar .nav-content-logo {
+        display: flex;
+        width: 105px;
+        padding-left: 15px;
+    }
+
+    .Navbar .nav-content-logo a {
+        display: flex;
+        width: 100%;
+    }
+
+
+    .Navbar .nav-content-logo img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .logo-menu {
+        width: 60px !important;
+        left: 0;
+        position: relative;
+    }
+
+    .nav-toggle .bar {
+        width: 30px;
+        height: 3px;
+        background: white;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .nav-toggle .bar::before,
+    .nav-toggle .bar::after {
+        content: "";
+        position: absolute;
+        height: 3px;
+        background: white;
+        width: 100%;
+        left: 0;
+        transition: all 0.3s ease;
+    }
+
+    .nav-toggle .bar::before {
+        top: -8px;
+    }
+
+    .nav-toggle .bar::after {
+        bottom: -8px;
+    }
+
+    .nav-toggle.open .bar {
+        background: transparent;
+    }
+
+    .nav-toggle.open .bar::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .nav-toggle.open .bar::after {
+        transform: rotate(-45deg);
+        bottom: 0;
+    }
+
+    .prueba-logo img {
+        width: 100%;
+    }
+
+    .logo-menu {
+        width: 200px;
+        left: 0;
+        position: relative;
+        top: 0;
+        transition: all 0.6s ease;
+    }
+
+    .logo-menu.logo-down {
+        width: 200px;
+        left: 0;
+        position: relative;
+        top: 0;
+    }
+
+    .prueba-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        background-color: transparent;
+        transition: all 0.4s ease;
+        position: relative;
+        left: 0;
+    }
+
+    .prueba-logo.scrold {
+        height: 0;
+        background-color: transparent;
+    }
+
+    .Navbar.page-contacto {
+        color: #fff;
+        background-color: #000;
+    }
+
+    .Navbar.page-contacto a {
+        color: white;
+    }
+
+    .Navbar.page-contacto .nav-items a::before {
+        background: #fff;
+    }
+
+     .info_modal_mayor_de_edad {
+        width: 380px;
+    }
+
+
+}
