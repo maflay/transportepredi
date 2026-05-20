@@ -81,6 +81,7 @@ function ValidateSession() {
         Token: IdSession,
         Asset: url,
         Nivel: data[0].Nivel,
+        Vehi: data[0].Tipo_vehiculo,
       };
       setCookie("1nf0_us3r_tr4ns", dataCookie);
       window.location.reload();
@@ -169,6 +170,7 @@ function registerTrans() {
           Fecha: fecha,
           Nombre: nombre_trans.value,
           Numero: document_trans.value,
+          Tipo_vehiculo: tipo_vehiculo.value,
           Placa: placa_vehiculo.value,
         }),
       });

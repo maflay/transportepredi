@@ -9,11 +9,11 @@
     <section class="_main_charge_points_">
         <div class="_content_charge_points_">
             <div class="_content_consulta_factura">
-                <h2>Consultar</h2>
+                <h2>Ingresa la Información de tu factura</h2>
                 <div class="_content_control_consulta_">
                     <div>
-                        <p># Factura</p>
-                        <input onkeyup="this.value = this.value.toUpperCase()" placeholder="# Factura" type="text"
+                        <p>Digita tu # Factura</p>
+                        <input onkeyup="this.value = this.value.toUpperCase()" placeholder="Ej: FER12076.." type="text"
                             value="FER1207665" name="factura_id" id="factura_id" class="form-control">
                     </div>
                     <div>
@@ -22,17 +22,23 @@
                             id="fecha_consulta">
                     </div>
                     <div>
-                        <p>Estación</p>
+                        <p>Estación de tu factura</p>
                         <select class="form-control" name="estacion_id" id="estacion_id">
                             <option value="">Estación</option>
                             <option value="614">La estación el RIO</option>
                             <option value="596">La estación la 28</option>
                         </select>
                     </div>
-                    <button id="btn_consulta_factura" class="btn btn-primary">Consultar Factura</button>
-                    <button title="Consultar Prediccion" id="btn_consul_trans" class="btn btn-danger">Consultar
-                        Pre.</button>
+                    <p id="AllInfoBilldatostotal"></p>
                 </div>
+                <br />
+                <div class="_content_btn_consulta_">
+                    <button id="btn_consulta_factura" class="btn btn-primary">Validar Factura</button>
+                    <button title="Consultar Prediccion" id="btn_consul_trans" class="btn btn-danger">Consultar todas
+                        tus predicciones</button>
+                </div>
+                <br />
+                <div style="width: 100%;height: 1px; background-color: rgba(255, 255, 255, 0.363);"></div>
                 <br />
                 <div id="_content_result_factura_" class="_content_result_factura_">
                     <h2>Información de tu Factura</h2>
@@ -58,13 +64,16 @@
                             <p id="_placa_result_">???</p>
                         </div>
                     </div>
+                    <br />
+                    <div style="width: 100%;height: 1px; background-color: rgba(255, 255, 255, 0.363);"></div>
+
                 </div>
                 <br />
                 <div id="_content_seccion_prediccion_" class="_content_seccion_prediccion_">
                     <h2 id="title_prediccion">Haz tu Predicción</h2>
                     <div id="_seccion_prediccion_" class="_seccion_prediccion_">
                         <div class="_prediccion_content_lugar_">
-                            <p>Campeon</p>
+                            <p>Campeón</p>
                             <select class="form-control" id="primer_lugar">
                                 <option value="">Selecciona un país</option>
 
@@ -132,7 +141,7 @@
                             </select>
                         </div>
                         <div class="_prediccion_content_lugar_">
-                            <p>Sub Campeon</p>
+                            <p>Sub Campeón</p>
                             <select class="form-control" id="segundo_lugar">
                                 <option value="">Selecciona un país</option>
 
@@ -336,6 +345,9 @@
                             </select>
                         </div>
                     </div>
+                    <br />
+                    <div style="width: 100%;height: 1px; background-color: rgba(255, 255, 255, 0.363);"></div>
+
                     <div class="_content_btn_predi_">
                         <button title="Enviar" id="btn_submit_predi_trans" class="btn btn-primary">Enviar</button>
                         <button title="Actualizar Prediccion" class="btn btn-primary" id="btn_update_pre">Actualizar

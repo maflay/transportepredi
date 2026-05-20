@@ -118,15 +118,11 @@
       const usuario = data_resultado_cli[0];
       const resultados = data_fase_grupo[0];
 
-      console.log(usuario);
-      console.log(resultados);
-
       const resultadoFinal = compararResultados(
         usuario,
         resultados,
         encabezados,
       );
-      console.log(resultadoFinal);
 
       const ranking = data_resultado_cli.map((usuario) => {
         const res = compararResultados(usuario, resultados, encabezados);
@@ -156,7 +152,6 @@
         console.log(user);
       }
 
-      // console.log(usuario);
       return;
     } catch (error) {
       console.error("Error en las peticiones", error);

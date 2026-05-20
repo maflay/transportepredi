@@ -276,7 +276,6 @@ function cargarHeaderYFooter() {
       const footerScripts = mainFooter.querySelectorAll("script");
       footerScripts.forEach((script) => {
         const newScript = document.createElement("script");
-        console.log(script.src);
         if (script.src) {
           newScript.src = script.src;
         }

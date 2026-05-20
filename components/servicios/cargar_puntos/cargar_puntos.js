@@ -36,6 +36,7 @@
   );
 
   let _Fecha_fac_;
+  let totalCompra = document.getElementById("AllInfoBilldatostotal");
 
   const encabezados = [
     "Predi_lugar_uno",
@@ -86,6 +87,8 @@
     ConsultaFactura(factura_id.value, fecha_consulta.value);
   });
 
+  let userLog = getCookie("1nf0_us3r_tr4ns");
+
   const formatoPesos_monto_efectivo = new Intl.NumberFormat("es-CO", {
     style: "currency",
     currency: "COP",
@@ -115,11 +118,11 @@
       if (res.status === "ok") {
         loader.style.display = "none";
         let AllInfoBill = res.datos;
-        console.log("AllInfoBill",AllInfoBill);
         _nombre_result_.textContent =
           AllInfoBill.datos.customer.first_name +
           " " +
           AllInfoBill.datos.customer.last_name;
+
         _cedula_result_.textContent = AllInfoBill.datos.customer.document;
         _factura_result_.textContent = AllInfoBill.datos.bill;
         _placa_result_.textContent = AllInfoBill.datos.sales[0].plate;
@@ -129,6 +132,28 @@
         _Fecha_fac_ = AllInfoBill.Fecha_fac;
         if (AllInfoBill.datos.customer.first_name == "CONSUMIDOR FINAL") {
           _placa_result_.textContent = "Sin Placa";
+        }
+
+        let totalBill = formatoPesos_monto_efectivo.format(
+          AllInfoBill.datos.total,
+        );
+
+        if (userLog.Vehi == "MOTO") {
+          if (AllInfoBill.datos.total < 15000) {
+            totalCompra.innerHTML = `<p class="mjs_total_moto_dene">${totalBill} - Tu vehículo no Cumple las condiciones de moto.</p>`;
+            _content_result_factura_.classList.add("item_disable");
+            _content_seccion_prediccion_.classList.add("item_disable");
+          } else {
+            totalCompra.innerHTML = `<p class="mjs_total_moto_apro">${totalBill} - Tu vehículo Cumple las condiciones de moto.</p>`;
+          }
+        } else if (userLog.Vehi == "CARRO") {
+          if (AllInfoBill.datos.total < 30000) {
+            totalCompra.innerHTML = `<p class="mjs_total_carro_dene">${totalBill} - Tu vehículo no Cumple las condiciones de carro.</p>`;
+            _content_result_factura_.classList.add("item_disable");
+            _content_seccion_prediccion_.classList.add("item_disable");
+          } else {
+            totalCompra.innerHTML = `<p class="mjs_total_carro_apro">${totalBill} - Tu vehículo Cumple las condiciones de carro.</p>`;
+          }
         }
         _content_result_factura_.style.display = "flex";
         _content_seccion_prediccion_.style.display = "flex";
@@ -237,7 +262,7 @@
       Predi_lugar_dos: segundo_lugar.value,
       Predi_lugar_tres: tercer_lugar.value,
       Predi_lugar_cuarto: cuarto_lugar.value,
-      Tipo_vehi: ""
+      Tipo_vehi: "",
     };
 
     loader.style.display = "flex";

@@ -1,8 +1,13 @@
 ._main_charge_points_ {
     width: 100%;
     height: 100%;
-    max-height: 100vh;
-    overflow-y: auto;
+    min-height: 100vh;
+    background-image: linear-gradient(180deg, #0000008e), url(/assets/fondo_horizontal.jpg);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white !important;
+    background-attachment: fixed;
 }
 
 ._content_charge_points_ {
@@ -27,7 +32,7 @@
 ._content_control_consulta_ {
     display: flex;
     justify-content: start;
-    align-items: end;
+    align-items: center;
     width: 100%;
     gap: 20px;
 }
@@ -41,8 +46,16 @@
     margin: 0;
 }
 
-._content_control_consulta_ input::-webkit-outer-spin-button,
-._content_control_consulta_ input::-webkit-inner-spin-button {
+._content_btn_consulta_ {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: start;
+    gap: 20px;
+}
+
+._content_btn_consulta_ input::-webkit-outer-spin-button,
+._content_btn_consulta_ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
@@ -61,7 +74,7 @@
     justify-content: center;
     align-items: start;
     width: 100%;
-    background-color: rgb(201, 201, 201);
+    background-color: #696969;
     border-radius: 20px;
     padding: 20px;
 }
@@ -87,7 +100,7 @@
     justify-content: center;
     align-items: start;
     width: 100%;
-    background-color: rgb(201, 201, 201);
+    background-color: #696969;
     border-radius: 20px;
     padding: 20px;
     gap: 10px;
@@ -154,7 +167,7 @@
     justify-content: center;
     align-items: start;
     width: 100%;
-    background-color: rgb(201, 201, 201);
+    background-color: #696969;
     border-radius: 20px;
     padding: 20px;
     gap: 10px;
@@ -170,11 +183,10 @@
     font-family: 'Segoe UI', sans-serif;
     font-size: 14px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    min-width: 800px;
 }
 
 .styled-table thead {
-    background: rgb(34, 79, 161);
+    background: #3f0000;
     color: #fff;
 }
 
@@ -182,7 +194,7 @@
 .styled-table td {
     padding: 12px 12px;
     text-align: center;
-    border: 1px solid #ddd;
+    border: 1px solid #470000;
     position: relative;
 }
 
@@ -202,11 +214,6 @@
 .table-result {
     width: 100%;
     overflow-x: auto;
-}
-
-.styled-table {
-    min-width: 1000px;
-    width: 100%;
 }
 
 ._acerto_ {
@@ -246,7 +253,29 @@
     margin: 0;
 }
 
+.mjs_total_moto_apro {
+    color: #00ff00;
+}
+
+.mjs_total_moto_dene {
+    color: red;
+
+}
+
+.mjs_total_carro_apro {
+    color: #00ff00;
+}
+
+.mjs_total_carro_dene {
+    color: red;
+
+}
+
 @media(max-width: 768px) {
+
+    ._main_charge_points_ {
+        background-image: linear-gradient(180deg, #0000008e), url(/assets/fondo_vertical.jpg);
+    }
 
     ._content_control_consulta_ {
         justify-content: start;
@@ -254,7 +283,7 @@
         flex-direction: column;
     }
 
-    ._content_control_consulta_ button {
+    ._content_btn_consulta_ button {
         font-size: 12px;
         padding: 2px 4px;
     }
