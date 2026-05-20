@@ -2,56 +2,16 @@
 <html>
 
 <head>
-    <title>Cargar Puntos</title>
+    <title>Pannel Admin</title>
 </head>
 
 <body>
-    <section class="_main_charge_points_">
-        <div class="_content_charge_points_">
-            <div class="_content_consulta_factura">
-                <h2>Consultar</h2>
-                <div class="_content_control_consulta_">
-                    <div>
-                        <p># Factura</p>
-                        <input onkeyup="this.value = this.value.toUpperCase()" placeholder="# Factura" type="text"
-                        value="FER1207665" name="factura_id" id="factura_id" class="form-control">
-                    </div>
-                    <div>
-                        <p>Fecha de tu Factura</p>
-                        <input value="2026-04-21" type="date" class="form-control" name="fecha_consulta" id="fecha_consulta">
-                    </div>
-                    <button id="btn_consulta_factura" class="btn btn-primary">Consultar Factura</button>
-                </div>
-                <br />
-                <div id="_content_result_factura_" class="_content_result_factura_">
-                    <h2>Información de tu Factura</h2>
-                    <div class="_card_result_factura_">
-                        <div class="_item_result_">
-                            <p>Nombre :</p>
-                            <p id="_nombre_result_">???</p>
-                        </div>
-                        <div style="display: none;" class="_item_result_">
-                            <p>Cédula :</p>
-                            <p id="_cedula_result_">???</p>
-                        </div>
-                        <div class="_item_result_">
-                            <p>valor compra :</p>
-                            <p id="_compra_result_">$$$</p>
-                        </div>
-                        <div class="_item_result_">
-                            <p>Factura eletrónica de venta :</p>
-                            <p id="_factura_result_">???</p>
-                        </div>
-                        <div class="_item_result_">
-                            <p>Placa :</p>
-                            <p id="_placa_result_">???</p>
-                        </div>
-                    </div>
-                </div>
-                <br />
-                <div id="_content_seccion_prediccion_" class="_content_seccion_prediccion_">
-                    <h2 id="title_prediccion">Haz tu Predicción</h2>
-                    <div id="_seccion_prediccion_" class="_seccion_prediccion_">
+    <section class="_content_main_pannel_admin_">
+        <div class="_main_pannel_admin_">
+            <div class="_input_prediccion_real_">
+                <div class="_content_result_admin_">
+                    <div class="_content_selec_country_">
+                        <h2>Resultado Final</h2>
                         <div class="_prediccion_content_lugar_">
                             <p>Campeon</p>
                             <select class="form-control" id="primer_lugar">
@@ -325,20 +285,19 @@
                             </select>
                         </div>
                     </div>
-                    <div class="_content_btn_predi_">
-                        <button title="Enviar" id="btn_submit_predi_trans" class="btn btn-primary">Enviar</button>
-                        <button title="Actualizar Prediccion" class="btn btn-primary" id="btn_update_pre">Actualizar Pre.</button>
-                        <button title="Consultar Prediccion" id="btn_consul_trans" class="btn btn-danger">Consultar Pre.</button>
-                        <button title="Cambiar Prediccion" id="btn_cambiar_trans" class="btn btn-primary">Cambiar Pre.</button>
+                    <div class="_last_result_admin_">
+                        <h2>Ultimo Resultado</h2>
+                        <p id="primer_lugar_label">primer_lugar_label</p>
+                        <p id="segundo_lugar_label">segundo_lugar_label</p>
+                        <p id="tercer_lugar_label">tercer_lugar_label</p>
+                        <p id="cuarto_lugar_label">cuarto_lugar_label</p>
                     </div>
                 </div>
-                <br/>
-                <div id="_content_seccion_consulta_" class="_content_seccion_consulta_">
-                    <h2>Tus predicciones por factura</h2>
-                    <div class="_seccion_consulta_">
-                        <div class="_content_table_result_" id="_seccion_consulta_"></div>
-                    </div>
-                </div>
+            </div>
+            <div class="_cotentn_controls_admin_">
+                <button id="btn_send_resultado_admin" class="btn btn-primary">Enviar</button>
+                <button style="display: none;" id="btn_actualizar_admin" class="btn btn-danger">Actualizar</button>
+                <button style="display: none;" id="btn_cargar_adata" class="btn btn-primary">Cargar Data</button>
             </div>
         </div>
     </section>

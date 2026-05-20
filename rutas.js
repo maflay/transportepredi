@@ -10,8 +10,13 @@ const rutasLimpias = {
   //     js: "/components/login/login.js"
   //   },
   cargar_puntos: {
-    html: "/components/servicios/cargar_puntos/cargar_puntos.html",
+    html: "/components/servicios/cargar_puntos/index.html",
     css: "/components/servicios/cargar_puntos/cargar_puntos.css",
     js: "/components/servicios/cargar_puntos/cargar_puntos.js",
+  },
+  admin_cargar_result: {
+    html: "/admin/pannel_admin/index.html",
+    css: "/admin/pannel_admin/pannel_admin.css",
+    js: "/admin/pannel_admin/pannel_admin.js",
   },
 };

@@ -1,11 +1,28 @@
-._content_main_site_{
+._content_main_site_ {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(180deg, #ffffffa4) ,url(/assets/back_dsadsadsad.png);
+    background-image: linear-gradient(180deg, #ffffff6c), url(/assets/back_dsadsadsad.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+._content_info_promocion_ {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: black;
+}
+
+._content_info_promocion_ img {
+    width: 100%;
+}
+
+@media(max-width: 768px) {
+    ._content_info_promocion_ {
+        max-height: 100%;
+    }
 }

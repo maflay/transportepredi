@@ -106,8 +106,6 @@ const PageLoader = {
             }
           });
         }
-
-        capturarCorreoDesdeURL();
       })
       .catch((error) => {
         mainContent.innerHTML = "<p>Error al cargar la página.</p>";
@@ -227,6 +225,7 @@ function cargarHeaderYFooter() {
           navItems.classList.toggle("open");
         });
       }
+      renderMenu();
 
       document
         .getElementById("btn_cerrar_session")
@@ -304,19 +303,6 @@ function toRegister() {
   window.scrollTo(0, 0);
   navegarA(`contacto`);
 }
-
-function capturarCorreoDesdeURL() {
-  const hash = window.location.hash;
-  const url = new URL("http://prueba.com" + hash.slice(1));
-  const email = url.searchParams.get("email");
-
-  const inputCorreo = document.getElementById("correo");
-
-  if (email && inputCorreo) {
-    inputCorreo.value = decodeURIComponent(email);
-  }
-}
-
 
 function setCookie(name, value, opts = {}) {
   const {

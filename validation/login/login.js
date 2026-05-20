@@ -22,12 +22,20 @@ window.addEventListener("load", () => {
   document.onclick = resetearTemporizador;
 })();
 
+const loader = document.getElementById("loading");
+const nombre_trans = document.getElementById("nombre_trans");
+const document_trans = document.getElementById("document_trans");
+const password_trans = document.getElementById("password_trans");
+const telefono_trans = document.getElementById("telefono_trans");
+const correo_trans = document.getElementById("correo_trans");
+const tipo_vehiculo = document.getElementById("tipo_vehiculo");
+const placa_vehiculo = document.getElementById("placa_vehiculo");
+const url =
+  "https://script.google.com/macros/s/AKfycbwmqjFE_F4eNwauT70F-ERSVaYVQSX2H2MK6FOytpTEz3sNXCLIdfF9Ba70mJ9664h6/exec";
+
 function ValidateSession() {
   const usuario_trans = document.getElementById("usuario_trans");
   const password_trans = document.getElementById("password_trans");
-  const loader = document.getElementById("loading");
-  const url =
-    "https://script.google.com/macros/s/AKfycbx6uVWGh0YdGDC7ZfxiWciDjRXsAP9soR4IhvSieUS6Y8OGUO7-mBegy8yzQVpqgwXd/exec";
 
   if (!usuario_trans.value || !password_trans.value) {
     Swal.fire({
@@ -68,7 +76,13 @@ function ValidateSession() {
       let IdSession = Array.from({ length: 6 }, () =>
         Math.random().toString(36).substring(2),
       ).join("");
-      setCookie("1nf0_us3r_tr4ns", IdSession);
+      let dataCookie = {
+        Numero: password_trans.value,
+        Token: IdSession,
+        Asset: url,
+        Nivel: data[0].Nivel,
+      };
+      setCookie("1nf0_us3r_tr4ns", dataCookie);
       window.location.reload();
     });
 }
@@ -107,4 +121,90 @@ function getCookie(name) {
     }
   }
   return null;
+}
+
+function registerTrans() {
+  const fechaCompleta = new Date().toLocaleString("es-CO", {
+    timeZone: "America/Bogota",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  });
+
+  const [fecha, hora] = fechaCompleta.split(", ");
+
+  let createUser = nombre_trans.value.split(" ")[0].toLowerCase();
+
+  let data = {
+    tipo: "usuario_create",
+    Hora: hora,
+    Fecha: fecha,
+    Nombre: nombre_trans.value,
+    Numero: document_trans.value,
+    Username: createUser,
+    Contrasenia: document_trans.value,
+    Tipo_vehiculo: tipo_vehiculo.value,
+    Placa: placa_vehiculo.value,
+    Nivel: "2",
+  };
+
+  loader.style.display = "flex";
+  fetch(url, {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.text())
+    .then(() => {
+      fetch(url, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify({
+          tipo: "event",
+          Hora: hora,
+          Fecha: fecha,
+          Nombre: nombre_trans.value,
+          Numero: document_trans.value,
+          Placa: placa_vehiculo.value,
+        }),
+      });
+      fetch(url, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify({
+          tipo: "puntajes_predi",
+          Hora: hora,
+          Fecha: fecha,
+          Nombre: nombre_trans.value,
+          Numero: document_trans.value,
+          Placa: placa_vehiculo.value,
+        }),
+      });
+      nombre_trans.value = "";
+      document_trans.value = "";
+      password_trans.value = "";
+      telefono_trans.value = "";
+      correo_trans.value = "";
+      loader.style.display = "none";
+      Swal.fire({
+        icon: "success",
+        title: "Usuario creado",
+        allowOutsideClick: false,
+      }).then((act) => {
+        if (act.isConfirmed) {
+          window.location.href = "/validation/login/";
+        }
+      });
+    })
+    .catch((error) => {
+      loader.style.display = "none";
+      Swal.fire({
+        icon: "error",
+        title: "Error en el Envió",
+      });
+    });
 }

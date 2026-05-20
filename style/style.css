@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .loader-login {
     position: fixed;
     top: 0;
@@ -30,7 +36,7 @@
     }
 }
 
-.item_disable{
+.item_disable {
     opacity: 0.7;
     pointer-events: none;
 }
