@@ -140,19 +140,19 @@
 
         if (userLog.Vehi == "MOTO") {
           if (AllInfoBill.datos.total < 15000) {
-            totalCompra.innerHTML = `<p class="mjs_total_moto_dene">${totalBill} - Tu vehículo no Cumple las condiciones de moto.</p>`;
+            totalCompra.innerHTML = `<p class="mjs_total_moto_dene">Tu Factura no Cumple las condiciones para la predicción, Compra Min ($ 15.000).</p>`;
             _content_result_factura_.classList.add("item_disable");
             _content_seccion_prediccion_.classList.add("item_disable");
           } else {
-            totalCompra.innerHTML = `<p class="mjs_total_moto_apro">${totalBill} - Tu vehículo Cumple las condiciones de moto.</p>`;
+            totalCompra.innerHTML = `<p class="mjs_total_moto_apro">Tu Factura Cumple las condiciones para la predicción, Compra Min ($ 15.000).</p>`;
           }
         } else if (userLog.Vehi == "CARRO") {
           if (AllInfoBill.datos.total < 30000) {
-            totalCompra.innerHTML = `<p class="mjs_total_carro_dene">${totalBill} - Tu vehículo no Cumple las condiciones de carro.</p>`;
+            totalCompra.innerHTML = `<p class="mjs_total_carro_dene">Tu Factura no Cumple las condiciones para la predicción, Compra Min ($ 30.000).</p>`;
             _content_result_factura_.classList.add("item_disable");
             _content_seccion_prediccion_.classList.add("item_disable");
           } else {
-            totalCompra.innerHTML = `<p class="mjs_total_carro_apro">${totalBill} - Tu vehículo Cumple las condiciones de carro.</p>`;
+            totalCompra.innerHTML = `<p class="mjs_total_carro_apro">Tu Factura Cumple las condiciones para la predicción, Compra Min ($ 30.000).</p>`;
           }
         }
         _content_result_factura_.style.display = "flex";
@@ -419,7 +419,6 @@
                                         <th># Registro</th>
                                         <th>Nombre</th>
                                         <th>Fecha</th>
-                                        <th>Fec. Fac</th>
                                         <th>Número</th>
                                         <th>Factura</th>
                                         <th>Compra</th>
@@ -451,7 +450,6 @@
                                                   minute: "2-digit",
                                                 }) || ""
                                               }</td>
-                                              <td>${registro.Fecha_fac || ""}</td>
                                               <td>${registro.Numero || ""}</td>
                                               <td>${registro.Factura || ""}</td>
                                               <td>${registro.Compra || ""}</td>
@@ -489,6 +487,17 @@
                                 </div>
                               `;
 
+        const totalAcerto = data.filter(
+          (item) => item.Result_final === "Acerto",
+        ).length;
+
+        const totalNoAcerto = data.filter(
+          (item) => item.Result_final === "No Acerto",
+        ).length;
+
+        console.log("Acertó:", totalAcerto);
+        console.log("No acertó:", totalNoAcerto);
+
         const inputBuscar = document.getElementById("inputBuscador");
 
         inputBuscar.addEventListener("keyup", () => {
@@ -511,17 +520,24 @@
           });
         });
 
+        const tdEmpty = container.querySelector("td:nth-child(10)");
+        const tdBtn = container.querySelector("td:nth-child(11)");
+        if (tdEmpty && tdEmpty.textContent.trim() === "") {
+          tdBtn.innerHTML = "Sin resultado";
+        }
+
         const btn_fila_predi = document.querySelectorAll(".btn_fila_predi");
         btn_fila_predi.forEach((btn) => {
           btn.addEventListener("click", (e) => {
+            const registro = JSON.parse(btn.dataset.info);
+            const tr = btn.closest("tr");
+            handleCargaData(registro, tr);
+            return;
             if (hora >= "14:00:00") {
-              const registro = JSON.parse(btn.dataset.info);
-              const tr = btn.closest("tr");
-              handleCargaData(registro, tr);
             } else {
               Swal.fire({
                 icon: "warning",
-                title: "La Final no se ha jugado",
+                title: "La final no se ha jugado",
                 html: "Se jugará a las 2 p.m",
               });
             }
@@ -543,6 +559,16 @@
 
       const usuario = data_resultado_cli;
       const resultados = data_fase_grupo[0];
+
+      if (resultados.Predi_lugar_uno == "") {
+        loader.style.display = "none";
+        Swal.fire({
+          icon: "warning",
+          title: "Error en la Validación",
+          html: "No se puede validar. La final no se ha jugado",
+        });
+        return;
+      }
 
       const resultadoFinal = compararResultados(
         usuario,
@@ -574,6 +600,7 @@
             const tdOpc = tr.querySelector("td:nth-child(12)");
             if (tdOpc) tdOpc.innerHTML = String(resultadoFinal._acerto_);
           }
+          getDataPredi();
           Swal.fire({
             icon: "success",
             title: "Prediccion validada",

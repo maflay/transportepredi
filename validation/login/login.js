@@ -24,6 +24,7 @@ window.addEventListener("load", () => {
 
 const loader = document.getElementById("loading");
 const nombre_trans = document.getElementById("nombre_trans");
+const apellido_trans = document.getElementById("apellido_trans");
 const document_trans = document.getElementById("document_trans");
 const password_trans = document.getElementById("password_trans");
 const telefono_trans = document.getElementById("telefono_trans");
@@ -145,8 +146,9 @@ function registerTrans() {
     Hora: hora,
     Fecha: fecha,
     Nombre: nombre_trans.value,
+    Apellido: apellido_trans.value,
     Numero: document_trans.value,
-    Username: createUser,
+    Username:  document_trans.value,
     Contrasenia: document_trans.value,
     Tipo_vehiculo: tipo_vehiculo.value,
     Placa: placa_vehiculo.value,

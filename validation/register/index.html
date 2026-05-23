@@ -15,12 +15,14 @@
     <div id="loading" class="loader-login">
         <div class="spinner-login"></div>
     </div>
-    <section class="container _content_main_register_">
+    <section class="_content_main_register_">
         <form onsubmit="return false;" class="content_form_register">
-             <img src="/assets/logo_transporte_prediccion_letra.png" alt="Transporte">
+            <img src="/assets/logo_transporte_prediccion_letra.png" alt="Transporte">
             <div class="content_input_form_register">
                 <input class="form-control" type="text" name="nombre" id="nombre_trans" autocomplete="username"
                     placeholder="Nombre">
+                <input class="form-control" type="text" name="apellido" id="apellido_trans" autocomplete="username"
+                    placeholder="Apellido">
             </div>
             <div class="content_input_form_register">
                 <input class="form-control" type="number" name="document" id="document_trans"
@@ -40,7 +42,7 @@
             </div>
             <div class="content_input_form_register">
                 <select name="tipo_vehiculo" id="tipo_vehiculo" class="form-control">
-                    <option value="">Tipo de Vehiculo</option>
+                    <option value="">Tipo de Vehículo</option>
                     <option value="MOTO">Moto</option>
                     <option value="CARRO">Carro</option>
                 </select>
