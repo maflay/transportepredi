@@ -1,7 +1,7 @@
 ._content_main_site_ {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     width: 100%;
     height: 100vh;
     background-image: linear-gradient(180deg, #9723006c), url(/assets/back_dsadsadsad.png);
@@ -11,7 +11,7 @@
 }
 
 ._content_main_site_ img {
-    width: 450px;
+    width: 350px;
 }
 
 ._content_info_promocion_ {

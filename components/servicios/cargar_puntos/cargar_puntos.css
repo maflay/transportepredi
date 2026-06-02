@@ -37,6 +37,12 @@
     gap: 20px;
 }
 
+.textCargando {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+}
+
 ._content_control_consulta_ p {
     margin: 0;
 }

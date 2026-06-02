@@ -95,8 +95,13 @@
     minimumFractionDigits: 0,
   });
   const URL_APPS_SCRIPT = userLog.Asset;
+  let textCargando = document.createElement("p");
+  textCargando.textContent = "";
   async function ConsultaFactura(numeroDe6Digitos, fechaConsul) {
     loader.style.display = "flex";
+    textCargando.textContent = "Consultando Factura... Esto puede tardar unos minutos.";
+    textCargando.classList.add("textCargando");
+    loader.appendChild(textCargando);
     existBill(factura_id.value);
     try {
       const response = await fetch(URL_APPS_SCRIPT, {
