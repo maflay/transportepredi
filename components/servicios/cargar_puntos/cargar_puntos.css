@@ -277,6 +277,11 @@
 
 }
 
+._predi_empty_ {
+    display: none;
+    color: white;
+}
+
 @media(max-width: 768px) {
 
     ._main_charge_points_ {

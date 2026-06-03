@@ -396,12 +396,14 @@
       .then((res) => res.json())
       .then((data) => {
         if (!Array.isArray(data) || data.length === 0) {
-          container.innerHTML = "No tiene predicciones disponibles.";
+          container.innerHTML = ``;
+          document.getElementById("_predi_empty_").style.display = "flex";
           loader.style.display = "none";
           return;
         }
         loader.style.display = "none";
         _content_seccion_consulta_.style.display = "flex";
+          document.getElementById("_predi_empty_").style.display = "none";
 
         const fechaCompleta = new Date().toLocaleString("es-CO", {
           timeZone: "America/Bogota",
