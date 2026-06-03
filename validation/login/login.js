@@ -172,19 +172,19 @@ function registerTrans() {
   })
     .then((res) => res.text())
     .then(() => {
-      fetch(url, {
-        method: "POST",
-        mode: "no-cors",
-        body: JSON.stringify({
-          tipo: "event",
-          Hora: hora,
-          Fecha: fecha,
-          Nombre: nombre_trans.value,
-          Numero: document_trans.value,
-          Tipo_vehiculo: tipo_vehiculo.value,
-          Placa: placa_vehiculo.value,
-        }),
-      });
+      // fetch(url, {
+      //   method: "POST",
+      //   mode: "no-cors",
+      //   body: JSON.stringify({
+      //     tipo: "event",
+      //     Hora: hora,
+      //     Fecha: fecha,
+      //     Nombre: nombre_trans.value,
+      //     Numero: document_trans.value,
+      //     Tipo_vehiculo: tipo_vehiculo.value,
+      //     Placa: placa_vehiculo.value,
+      //   }),
+      // });
       fetch(url, {
         method: "POST",
         mode: "no-cors",
