@@ -149,7 +149,7 @@
       const [fecha, hora] = fechaCompleta.split(", ");
 
       for (const user of ranking) {
-        console.log(user);
+        // console.log(user);
       }
 
       return;

@@ -500,8 +500,8 @@
           (item) => item.Result_final === "No Acerto",
         ).length;
 
-        console.log("Acertó:", totalAcerto);
-        console.log("No acertó:", totalNoAcerto);
+        // console.log("Acertó:", totalAcerto);
+        // console.log("No acertó:", totalNoAcerto);
 
         const inputBuscar = document.getElementById("inputBuscador");
 

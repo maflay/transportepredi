@@ -36,7 +36,6 @@ const url =
   "https://script.google.com/macros/s/AKfycbwmqjFE_F4eNwauT70F-ERSVaYVQSX2H2MK6FOytpTEz3sNXCLIdfF9Ba70mJ9664h6/exec";
 
 change_view_pas.addEventListener("click", () => {
-  console.log(password_trans.type);
   if (password_trans.type == "password") {
     password_trans.type = "text";
   } else {
