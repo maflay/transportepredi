@@ -31,8 +31,18 @@ const telefono_trans = document.getElementById("telefono_trans");
 const correo_trans = document.getElementById("correo_trans");
 const tipo_vehiculo = document.getElementById("tipo_vehiculo");
 const placa_vehiculo = document.getElementById("placa_vehiculo");
+const change_view_pas = document.getElementById("change_view_pas");
 const url =
   "https://script.google.com/macros/s/AKfycbwmqjFE_F4eNwauT70F-ERSVaYVQSX2H2MK6FOytpTEz3sNXCLIdfF9Ba70mJ9664h6/exec";
+
+change_view_pas.addEventListener("click", () => {
+  console.log(password_trans.type);
+  if (password_trans.type == "password") {
+    password_trans.type = "text";
+  } else {
+    password_trans.type = "password";
+  }
+});
 
 function ValidateSession() {
   const usuario_trans = document.getElementById("usuario_trans");
@@ -148,7 +158,7 @@ function registerTrans() {
     Nombre: nombre_trans.value,
     Apellido: apellido_trans.value,
     Numero: document_trans.value,
-    Username:  document_trans.value,
+    Username: document_trans.value,
     Contrasenia: document_trans.value,
     Tipo_vehiculo: tipo_vehiculo.value,
     Placa: placa_vehiculo.value,
