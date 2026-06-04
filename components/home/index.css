@@ -31,7 +31,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: auto;
     gap: 20px;
     padding: 20px;
     border-radius: 20px;
@@ -86,10 +86,10 @@
     animation: moverNubes 20s linear infinite;
 } */
 
-.btn_action_salir {
-    position: relative;
-    bottom: 40px;
-}
+   .btn_action_salir {
+        position: relative;
+        bottom: -40px;
+    }
 
 @media(max-width: 768px) {
     ._content_info_promocion_ {
@@ -98,5 +98,10 @@
 
     ._content_main_site_ {
         justify-content: space-around;
+    }
+
+    .btn_action_salir {
+        position: relative;
+        bottom: 40px;
     }
 }
