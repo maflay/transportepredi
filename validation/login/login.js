@@ -38,8 +38,11 @@ const url =
 change_view_pas.addEventListener("click", () => {
   if (password_trans.type == "password") {
     password_trans.type = "text";
+    change_view_pas.src = "/assets/pass_show.png"
+
   } else {
     password_trans.type = "password";
+    change_view_pas.src = "/assets/pass_hide.png"
   }
 });
 

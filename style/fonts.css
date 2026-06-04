@@ -2,3 +2,9 @@
   font-family: 'Interphases';
   src: url('/style/TT-Interphases-Pro-Trial-Regular.ttf') format('truetype');
 }
+
+
+@font-face {
+    font-family: 'super wonder';
+    src: url('/style/Super\ Wonder.ttf') format('truetype');
+}

@@ -12,31 +12,33 @@
 </head>
 
 <body>
-   <div id="loading" class="loader-login">
-        <div class="spinner-login"></div>
-    </div>
+  <div id="loading" class="loader-login">
+    <div class="spinner-login"></div>
+  </div>
   <section class="_content_main_login_">
     <form onsubmit="return false;" class="content_form_login">
       <!-- <h2>Login</h2> -->
-       <img src="/assets/logo_transporte_prediccion_letra.png" alt="Transporte">
+      <img src="/assets/logo_transporte_prediccion_letra.png" alt="Transporte">
       <div class="content_input_form_login">
-        <input class="form-control" type="text" name="usuario" id="usuario_trans" autocomplete="username" placeholder="Usuario">
+        <input class="form-control" type="text" name="usuario" id="usuario_trans" autocomplete="username"
+          placeholder="Usuario">
         <img src="/assets/usuario.png" alt="Transporte">
       </div>
       <div class="content_input_form_login">
-        <input class="form-control" type="password" name="password" id="password_trans" autocomplete="current-password" placeholder="Password">
-        <img id="change_view_pas" src="/assets/password.png" alt="Transporte">
+        <input class="form-control" type="password" name="password" id="password_trans" autocomplete="current-password"
+          placeholder="Password">
+        <img id="change_view_pas" src="/assets/pass_hide.png" alt="Transporte">
       </div>
       <div class="content_btn_login">
-        <button onclick="ValidateSession()" class="btn btn-primary">Iniciar session</button>
-      <a href="/validation/register/">Registrarse</a>
+        <button onclick="ValidateSession()" class="btn btn-primary">Iniciar sesión</button>
+        <a href="/validation/register/">Registrarse</a>
       </div>
     </form>
   </section>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="/validation/login/login.js"></script>
 </body>
 
