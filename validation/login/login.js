@@ -38,11 +38,10 @@ const url =
 change_view_pas.addEventListener("click", () => {
   if (password_trans.type == "password") {
     password_trans.type = "text";
-    change_view_pas.src = "/assets/pass_show.png"
-
+    change_view_pas.src = "/assets/pass_show.png";
   } else {
     password_trans.type = "password";
-    change_view_pas.src = "/assets/pass_hide.png"
+    change_view_pas.src = "/assets/pass_hide.png";
   }
 });
 
@@ -150,10 +149,9 @@ function registerTrans() {
   });
 
   const [fecha, hora] = fechaCompleta.split(", ");
-
   let createUser = nombre_trans.value.split(" ")[0].toLowerCase();
 
-  let data = {
+  let payload = {
     tipo: "usuario_create",
     Hora: hora,
     Fecha: fecha,
@@ -168,59 +166,73 @@ function registerTrans() {
   };
 
   loader.style.display = "flex";
-  fetch(url, {
-    method: "POST",
-    mode: "no-cors",
-    body: JSON.stringify(data),
-  })
-    .then((res) => res.text())
-    .then(() => {
-      // fetch(url, {
-      //   method: "POST",
-      //   mode: "no-cors",
-      //   body: JSON.stringify({
-      //     tipo: "event",
-      //     Hora: hora,
-      //     Fecha: fecha,
-      //     Nombre: nombre_trans.value,
-      //     Numero: document_trans.value,
-      //     Tipo_vehiculo: tipo_vehiculo.value,
-      //     Placa: placa_vehiculo.value,
-      //   }),
-      // });
+
+  fetch(
+    `${url}?hoja=usuarios&usuario=${document_trans.value}&contra=${document_trans.value}`,
+  )
+    .then((res) => res.json())
+    .then((respuesta) => {
+      if (respuesta && (respuesta.existe === true || respuesta.length > 0)) {
+        loader.style.display = "none";
+        Swal.fire({
+          icon: "warning",
+          title: "Usuario ya registrado",
+          text: "El número de documento ya se encuentra en el sistema.",
+        });
+        return;
+      }
+
       fetch(url, {
         method: "POST",
         mode: "no-cors",
-        body: JSON.stringify({
-          tipo: "puntajes_predi",
-          Hora: hora,
-          Fecha: fecha,
-          Nombre: nombre_trans.value,
-          Numero: document_trans.value,
-          Placa: placa_vehiculo.value,
-        }),
-      });
-      nombre_trans.value = "";
-      document_trans.value = "";
-      password_trans.value = "";
-      telefono_trans.value = "";
-      correo_trans.value = "";
-      loader.style.display = "none";
-      Swal.fire({
-        icon: "success",
-        title: "Usuario creado",
-        allowOutsideClick: false,
-      }).then((act) => {
-        if (act.isConfirmed) {
-          window.location.href = "/validation/login/";
-        }
-      });
+        body: JSON.stringify(payload),
+      })
+        .then(() => {
+          fetch(url, {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify({
+              tipo: "puntajes_predi",
+              Hora: hora,
+              Fecha: fecha,
+              Nombre: nombre_trans.value,
+              Numero: document_trans.value,
+              Placa: placa_vehiculo.value,
+            }),
+          });
+
+          nombre_trans.value = "";
+          apellido_trans.value = "";
+          document_trans.value = "";
+          if (window.password_trans) password_trans.value = "";
+          if (window.telefono_trans) telefono_trans.value = "";
+          if (window.correo_trans) correo_trans.value = "";
+
+          loader.style.display = "none";
+
+          Swal.fire({
+            icon: "success",
+            title: "Usuario creado",
+            allowOutsideClick: false,
+          }).then((act) => {
+            if (act.isConfirmed) {
+              window.location.href = "/validation/login/";
+            }
+          });
+        })
+        .catch((error) => {
+          loader.style.display = "none";
+          Swal.fire({
+            icon: "error",
+            title: "Error en el Envío",
+          });
+        });
     })
     .catch((error) => {
       loader.style.display = "none";
       Swal.fire({
         icon: "error",
-        title: "Error en el Envió",
+        title: "Error al verificar usuario",
       });
     });
 }
